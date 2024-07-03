@@ -35,7 +35,15 @@
 			uSUARIOToolStripMenuItem = new ToolStripMenuItem();
 			vENDASToolStripMenuItem = new ToolStripMenuItem();
 			contextMenuStrip3 = new ContextMenuStrip(components);
+			contextMenuStrip4 = new ContextMenuStrip(components);
+			contextMenuStrip5 = new ContextMenuStrip(components);
+			almeidaToolStripMenuItem = new ToolStripMenuItem();
+			contextMenuStrip6 = new ContextMenuStrip(components);
+			alToolStripMenuItem = new ToolStripMenuItem();
+			alToolStripMenuItem1 = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
+			contextMenuStrip5.SuspendLayout();
+			contextMenuStrip6.SuspendLayout();
 			SuspendLayout();
 			// 
 			// contextMenuStrip1
@@ -50,7 +58,7 @@
 			// 
 			// menuStrip1
 			// 
-			menuStrip1.Items.AddRange(new ToolStripItem[] { cADRASTOToolStripMenuItem, vENDASToolStripMenuItem });
+			menuStrip1.Items.AddRange(new ToolStripItem[] { cADRASTOToolStripMenuItem, vENDASToolStripMenuItem, alToolStripMenuItem1 });
 			menuStrip1.Location = new Point(0, 0);
 			menuStrip1.Name = "menuStrip1";
 			menuStrip1.Size = new Size(800, 24);
@@ -107,6 +115,41 @@
 			contextMenuStrip3.Name = "contextMenuStrip3";
 			contextMenuStrip3.Size = new Size(61, 4);
 			// 
+			// contextMenuStrip4
+			// 
+			contextMenuStrip4.Name = "contextMenuStrip4";
+			contextMenuStrip4.Size = new Size(61, 4);
+			// 
+			// contextMenuStrip5
+			// 
+			contextMenuStrip5.Items.AddRange(new ToolStripItem[] { almeidaToolStripMenuItem });
+			contextMenuStrip5.Name = "contextMenuStrip5";
+			contextMenuStrip5.Size = new Size(117, 26);
+			// 
+			// almeidaToolStripMenuItem
+			// 
+			almeidaToolStripMenuItem.Name = "almeidaToolStripMenuItem";
+			almeidaToolStripMenuItem.Size = new Size(116, 22);
+			almeidaToolStripMenuItem.Text = "almeida";
+			// 
+			// contextMenuStrip6
+			// 
+			contextMenuStrip6.Items.AddRange(new ToolStripItem[] { alToolStripMenuItem });
+			contextMenuStrip6.Name = "contextMenuStrip6";
+			contextMenuStrip6.Size = new Size(84, 26);
+			// 
+			// alToolStripMenuItem
+			// 
+			alToolStripMenuItem.Name = "alToolStripMenuItem";
+			alToolStripMenuItem.Size = new Size(83, 22);
+			alToolStripMenuItem.Text = "al";
+			// 
+			// alToolStripMenuItem1
+			// 
+			alToolStripMenuItem1.Name = "alToolStripMenuItem1";
+			alToolStripMenuItem1.Size = new Size(28, 20);
+			alToolStripMenuItem1.Text = "al";
+			// 
 			// TelaPrincipal
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -117,6 +160,8 @@
 			Text = "TelaPrincipal";
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
+			contextMenuStrip5.ResumeLayout(false);
+			contextMenuStrip6.ResumeLayout(false);
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -134,5 +179,11 @@
 		private ToolStripMenuItem vENDASToolStripMenuItem;
 		private ContextMenuStrip contextMenuStrip3;
 		private ToolStripMenuItem uSUARIOToolStripMenuItem;
+		private ContextMenuStrip contextMenuStrip4;
+		private ContextMenuStrip contextMenuStrip5;
+		private ToolStripMenuItem almeidaToolStripMenuItem;
+		private ContextMenuStrip contextMenuStrip6;
+		private ToolStripMenuItem alToolStripMenuItem1;
+		private ToolStripMenuItem alToolStripMenuItem;
 	}
 }
