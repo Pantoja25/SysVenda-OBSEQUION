@@ -14,7 +14,6 @@ namespace SysVenda_OBSEQUION.entidades {
 			public string ImagemURL { get; set; } 
 			public int QuantidadeEmEstoque { get; set; } 
 			public bool Disponivel { get; set; } 
-		}
-
 	}
+
 }
