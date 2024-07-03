@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using SysVendas2.Entidades;
 
 namespace SysVendas2
-{
-    internal class Contexto : BdContext
+{       
+    internal class Contexto : BdContext    
     {
         public BdSet<Cliente> Clientes { get; set; }
         public BdSet<Produto> Produtos { get; set; }
