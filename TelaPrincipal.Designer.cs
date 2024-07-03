@@ -40,7 +40,6 @@
 			almeidaToolStripMenuItem = new ToolStripMenuItem();
 			contextMenuStrip6 = new ContextMenuStrip(components);
 			alToolStripMenuItem = new ToolStripMenuItem();
-			alToolStripMenuItem1 = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
 			contextMenuStrip5.SuspendLayout();
 			contextMenuStrip6.SuspendLayout();
@@ -58,7 +57,7 @@
 			// 
 			// menuStrip1
 			// 
-			menuStrip1.Items.AddRange(new ToolStripItem[] { cADRASTOToolStripMenuItem, vENDASToolStripMenuItem, alToolStripMenuItem1 });
+			menuStrip1.Items.AddRange(new ToolStripItem[] { cADRASTOToolStripMenuItem, vENDASToolStripMenuItem });
 			menuStrip1.Location = new Point(0, 0);
 			menuStrip1.Name = "menuStrip1";
 			menuStrip1.Size = new Size(800, 24);
@@ -144,12 +143,6 @@
 			alToolStripMenuItem.Size = new Size(83, 22);
 			alToolStripMenuItem.Text = "al";
 			// 
-			// alToolStripMenuItem1
-			// 
-			alToolStripMenuItem1.Name = "alToolStripMenuItem1";
-			alToolStripMenuItem1.Size = new Size(28, 20);
-			alToolStripMenuItem1.Text = "al";
-			// 
 			// TelaPrincipal
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -183,7 +176,6 @@
 		private ContextMenuStrip contextMenuStrip5;
 		private ToolStripMenuItem almeidaToolStripMenuItem;
 		private ContextMenuStrip contextMenuStrip6;
-		private ToolStripMenuItem alToolStripMenuItem1;
 		private ToolStripMenuItem alToolStripMenuItem;
 	}
 }
