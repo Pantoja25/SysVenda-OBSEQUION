@@ -4,11 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace SysVenda_OBSEQUION.entidades {
 	internal class ItemVenda {
-		[Kay]
+		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ItemVendaId { get; set; }
 		public int VendaId { get; set; }
