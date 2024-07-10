@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SysVenda_OBSEQUION.entidades {
 	internal class ItemVenda {
-		[Kay]
+		
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ItemVendaId { get; set; }
 		public int VendaId { get; set; }
