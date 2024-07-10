@@ -8,7 +8,7 @@ namespace SysVenda_OBSEQUION {
 			// To customize application configuration such as set high DPI settings or default font,
 			// see https://aka.ms/applicationconfiguration.
 			ApplicationConfiguration.Initialize();
-			Application.Run(new TelaCliente());
+			Application.Run(new Form_Cliente());
 		}
 	}
 }

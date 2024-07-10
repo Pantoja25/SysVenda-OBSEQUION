@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace SysVenda_OBSEQUION.entidades {
 	internal class ItemVenda {
-		[Kay]
+		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ItemVendaId { get; set; }
 		public int VendaId { get; set; }

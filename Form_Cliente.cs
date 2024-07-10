@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Globalization;
+﻿using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Security.Policy;
 using SysVenda_OBSEQUION.entidades;
+using SysVenda_OBSEQUION.API;
 
 namespace SysVenda_OBSEQUION {
 	public partial class Form_Cliente : Form {
@@ -25,6 +16,7 @@ namespace SysVenda_OBSEQUION {
 		List<Cliente> clientes;
 
 		int clienteId = 0;
+
 		public Form_Cliente() {
 			InitializeComponent();
 			contexto = new Contexto();
@@ -54,10 +46,10 @@ namespace SysVenda_OBSEQUION {
 
 			Cliente novocliente = new Cliente() {
 
-				Name = Txt_NOME.Text,
+				Nome = Txt_NOME.Text,
 				RG = Txt_RG.Text,
 				CPF = Txt_CPF.Text,
-				DataNascimento = dataNascimento,
+				Nascimento = dataNascimento,
 				Endereco = Txt_ENDERECO.Text,
 				Fone = Txt_FONE.Text,
 				Email = Txt_EMAIL.Text,
@@ -82,13 +74,13 @@ namespace SysVenda_OBSEQUION {
 		}
 
 		private void Btn_ATUALIZAR_Click(object sender, EventArgs e) {
-			if (estadoUsuario == 2) {
+			if (estadoUsuario == 0) {
 				using (var contexto = new Contexto()) {
 					var clienteRegistrado = contexto.Clientes.FirstOrDefault(
-						c => c.clienteID == clienteId);
+						c => c.ClienteId == clienteId);
 
 					if (clienteRegistrado != null && Txt_NOME != null) {
-						clienteRegistrado.Name = Txt_NOME.Text;
+						clienteRegistrado.Nome = Txt_NOME.Text;
 						clienteRegistrado.RG = Txt_RG.Text;
 						clienteRegistrado.CPF = Txt_CPF.Text;
 						clienteRegistrado.Endereco = Txt_ENDERECO.Text;
@@ -117,8 +109,8 @@ namespace SysVenda_OBSEQUION {
 				if (DGV_ListaClientes.SelectedRows.Count > 0) {
 					Cliente clienteSelected = DGV_ListaClientes.SelectedRows[0].DataBoundItem as Cliente;
 
-					clienteId = clienteSelected.clienteID;
-					Txt_NOME.Text = clienteSelected.Name;
+					clienteId = clienteSelected.ClienteId;
+					Txt_NOME.Text = clienteSelected.Nome;
 					Txt_RG.Text = clienteSelected.RG;
 					Txt_CPF.Text = clienteSelected.CPF;
 					Txt_ENDERECO.Text = clienteSelected.Endereco;
@@ -137,7 +129,7 @@ namespace SysVenda_OBSEQUION {
 
 				using (var clientesCxt = new Contexto()) {
 					var clienteParaDeletar = clientesCxt.Clientes.FirstOrDefault(
-						c => c.clienteID == clientesSelected.clienteID);
+						c => c.ClienteId == clientesSelected.ClienteId);
 
 					clientesCxt.Clientes.Remove(clienteParaDeletar);
 					clientesCxt.SaveChanges();
@@ -155,7 +147,7 @@ namespace SysVenda_OBSEQUION {
 
 			ClienteAPI cliente = new ClienteAPI();
 
-			Endereco Resp = cliente.GetEndereco("68744350");
+			Endereco Resp = cliente.GetEndereco(" ");
 
 			string cep = Txt_ENDERECO.Text;
 
