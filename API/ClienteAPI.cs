@@ -13,9 +13,13 @@ namespace SysVenda_OBSEQUION.API {
 
 		public Endereco GetEndereco(string cep) {
 			//Exemplo de uso de interpolação de string c#
-			Endereco resposta = restClient.Get<Endereco>(resource: $"{cep}/json");
-
-			return resposta;
+			try {
+				Endereco resposta = restClient.Get<Endereco>(resource: $"{cep}/json");
+				
+				return resposta;
+			} catch (System.InvalidOperationException) {
+				return new Endereco();
+			}
 		}
 	}
 }

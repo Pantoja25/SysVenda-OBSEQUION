@@ -70,11 +70,16 @@ namespace SysVenda_OBSEQUION {
 			Txt_EMAIL.Text = "";
 			Txt_NOME.Focus();
 
+			using (var clientesCxt = new Contexto()) {
+				clientes = new List<Cliente>();
+				clientes = clientesCxt.Clientes.ToList();
+				DGV_ListaClientes.DataSource = clientes;
+			}
 
 		}
 
 		private void Btn_ATUALIZAR_Click(object sender, EventArgs e) {
-			if (estadoUsuario == 0) {
+			if (estadoUsuario == 2) {
 				using (var contexto = new Contexto()) {
 					var clienteRegistrado = contexto.Clientes.FirstOrDefault(
 						c => c.ClienteId == clienteId);
@@ -147,13 +152,13 @@ namespace SysVenda_OBSEQUION {
 
 			ClienteAPI cliente = new ClienteAPI();
 
-			Endereco Resp = cliente.GetEndereco(" ");
+			Endereco Resp = cliente.GetEndereco(Txt_CEP.Text);
 
-			string cep = Txt_ENDERECO.Text;
-
-			Console.WriteLine(
-				Resp.logradouro + ", " + Resp.localidade + ", " + Resp.uf
-			);
+			if (Resp.uf != null) {
+				Txt_ENDERECO.Text = Resp.logradouro + ", " + Resp.localidade + ", " + Resp.uf;
+			} else {
+				MessageBox.Show("CEP inválido!");
+			}
 		}
 	}
 }
