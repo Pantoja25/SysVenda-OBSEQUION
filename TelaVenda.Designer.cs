@@ -25,13 +25,18 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaVenda));
 			DGV_ListaPedido = new DataGridView();
+			IdItemDaVenda = new DataGridViewTextBoxColumn();
+			NomeProduto = new DataGridViewTextBoxColumn();
+			PrecoUnitario = new DataGridViewTextBoxColumn();
+			QuantidadeVendida = new DataGridViewTextBoxColumn();
+			SubTotalDoItem = new DataGridViewTextBoxColumn();
 			Txt_IdVenda = new Label();
 			Txt_Produto = new Label();
 			ListaPedido = new Label();
 			Txt_Cliente = new Label();
 			Txt_VendaID = new TextBox();
-			textBox2 = new TextBox();
-			textBox3 = new TextBox();
+			Txt_IDProduto = new TextBox();
+			Txt_NomeCliente = new TextBox();
 			Txt_TotalGeral = new Label();
 			Btn_Limpa = new Button();
 			Btn_Registra = new Button();
@@ -42,32 +47,73 @@
 			Txt_Unidade = new Label();
 			Txt_Total = new Label();
 			Txt_Troco = new Label();
-			ProdutoID = new TextBox();
+			Txt_NomeProduto = new TextBox();
 			Txt_QTD = new Label();
-			textBox4 = new TextBox();
-			label1 = new Label();
-			label2 = new Label();
-			label3 = new Label();
-			label4 = new Label();
-			label5 = new Label();
+			Txt_QTDitem = new TextBox();
+			Lbl_TotalVenda = new Label();
+			Lbl_ValorTroco = new Label();
+			Txt_SubTotal = new Label();
+			Lbl_ValorProduto = new Label();
 			Txt_label = new Label();
 			Txt_ETQ = new Label();
 			Btn_OK = new Button();
 			label6 = new Label();
-			textBox5 = new TextBox();
+			Txt_ClienteId = new TextBox();
+			LblStatusBuscaProduto = new Label();
+			label7 = new Label();
+			LblStatusBuscaCliente = new Label();
+			TxT_ValorPago = new TextBox();
 			((System.ComponentModel.ISupportInitialize)DGV_ListaPedido).BeginInit();
 			SuspendLayout();
 			// 
 			// DGV_ListaPedido
 			// 
 			DGV_ListaPedido.AllowUserToOrderColumns = true;
+			DGV_ListaPedido.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			DGV_ListaPedido.BackgroundColor = SystemColors.Info;
 			DGV_ListaPedido.BorderStyle = BorderStyle.Fixed3D;
 			DGV_ListaPedido.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			DGV_ListaPedido.Columns.AddRange(new DataGridViewColumn[] { IdItemDaVenda, NomeProduto, PrecoUnitario, QuantidadeVendida, SubTotalDoItem });
 			DGV_ListaPedido.Location = new Point(12, 305);
 			DGV_ListaPedido.Name = "DGV_ListaPedido";
+			DGV_ListaPedido.ReadOnly = true;
 			DGV_ListaPedido.Size = new Size(520, 133);
 			DGV_ListaPedido.TabIndex = 0;
+			// 
+			// IdItemDaVenda
+			// 
+			IdItemDaVenda.DataPropertyName = "IdItemDaVenda";
+			IdItemDaVenda.HeaderText = "Id";
+			IdItemDaVenda.Name = "IdItemDaVenda";
+			IdItemDaVenda.ReadOnly = true;
+			// 
+			// NomeProduto
+			// 
+			NomeProduto.DataPropertyName = "NomeProduto";
+			NomeProduto.HeaderText = "Nome";
+			NomeProduto.Name = "NomeProduto";
+			NomeProduto.ReadOnly = true;
+			// 
+			// PrecoUnitario
+			// 
+			PrecoUnitario.DataPropertyName = "PrecoUnitario";
+			PrecoUnitario.HeaderText = "Preco";
+			PrecoUnitario.Name = "PrecoUnitario";
+			PrecoUnitario.ReadOnly = true;
+			// 
+			// QuantidadeVendida
+			// 
+			QuantidadeVendida.DataPropertyName = "QuantidadeVendida";
+			QuantidadeVendida.HeaderText = "Quantidade";
+			QuantidadeVendida.Name = "QuantidadeVendida";
+			QuantidadeVendida.ReadOnly = true;
+			// 
+			// SubTotalDoItem
+			// 
+			SubTotalDoItem.DataPropertyName = "SubTotalDoItem";
+			SubTotalDoItem.HeaderText = "SubTotal";
+			SubTotalDoItem.Name = "SubTotalDoItem";
+			SubTotalDoItem.ReadOnly = true;
 			// 
 			// Txt_IdVenda
 			// 
@@ -108,6 +154,7 @@
 			Txt_Cliente.Size = new Size(47, 17);
 			Txt_Cliente.TabIndex = 3;
 			Txt_Cliente.Text = "Cliente";
+			Txt_Cliente.Click += Txt_Cliente_Click;
 			// 
 			// Txt_VendaID
 			// 
@@ -121,24 +168,24 @@
 			Txt_VendaID.Size = new Size(81, 22);
 			Txt_VendaID.TabIndex = 5;
 			// 
-			// textBox2
+			// Txt_IDProduto
 			// 
-			textBox2.BackColor = SystemColors.GradientInactiveCaption;
-			textBox2.BorderStyle = BorderStyle.FixedSingle;
-			textBox2.Location = new Point(89, 64);
-			textBox2.Name = "textBox2";
-			textBox2.Size = new Size(193, 23);
-			textBox2.TabIndex = 6;
-			textBox2.KeyPress += Txt_ID;
+			Txt_IDProduto.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_IDProduto.BorderStyle = BorderStyle.FixedSingle;
+			Txt_IDProduto.Location = new Point(89, 64);
+			Txt_IDProduto.Name = "Txt_IDProduto";
+			Txt_IDProduto.Size = new Size(193, 23);
+			Txt_IDProduto.TabIndex = 6;
+			Txt_IDProduto.KeyPress += Txt_IDProduto_KeyPress;
 			// 
-			// textBox3
+			// Txt_NomeCliente
 			// 
-			textBox3.BackColor = SystemColors.GradientInactiveCaption;
-			textBox3.BorderStyle = BorderStyle.FixedSingle;
-			textBox3.Location = new Point(479, 12);
-			textBox3.Name = "textBox3";
-			textBox3.Size = new Size(309, 23);
-			textBox3.TabIndex = 7;
+			Txt_NomeCliente.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_NomeCliente.BorderStyle = BorderStyle.FixedSingle;
+			Txt_NomeCliente.Location = new Point(479, 12);
+			Txt_NomeCliente.Name = "Txt_NomeCliente";
+			Txt_NomeCliente.Size = new Size(309, 23);
+			Txt_NomeCliente.TabIndex = 7;
 			// 
 			// Txt_TotalGeral
 			// 
@@ -148,10 +195,9 @@
 			Txt_TotalGeral.ForeColor = SystemColors.ControlText;
 			Txt_TotalGeral.Location = new Point(599, 287);
 			Txt_TotalGeral.Name = "Txt_TotalGeral";
-			Txt_TotalGeral.Size = new Size(102, 20);
+			Txt_TotalGeral.Size = new Size(81, 20);
 			Txt_TotalGeral.TabIndex = 8;
-			Txt_TotalGeral.Text = "Total Geral R$";
-			Txt_TotalGeral.Click += Txt_TotalGeral_Click;
+			Txt_TotalGeral.Text = "Total Geral";
 			// 
 			// Btn_Limpa
 			// 
@@ -172,6 +218,7 @@
 			Btn_Registra.TabIndex = 11;
 			Btn_Registra.Text = "Registrar";
 			Btn_Registra.UseVisualStyleBackColor = false;
+			Btn_Registra.Click += Btn_Registra_Click;
 			// 
 			// Txt_Estoque
 			// 
@@ -189,9 +236,9 @@
 			Txt_Preco.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			Txt_Preco.Location = new Point(439, 70);
 			Txt_Preco.Name = "Txt_Preco";
-			Txt_Preco.Size = new Size(60, 17);
+			Txt_Preco.Size = new Size(41, 17);
 			Txt_Preco.TabIndex = 12;
-			Txt_Preco.Text = "Preço R$";
+			Txt_Preco.Text = "Preço";
 			// 
 			// Txt_Pagar
 			// 
@@ -199,9 +246,9 @@
 			Txt_Pagar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			Txt_Pagar.Location = new Point(599, 332);
 			Txt_Pagar.Name = "Txt_Pagar";
-			Txt_Pagar.Size = new Size(67, 20);
+			Txt_Pagar.Size = new Size(46, 20);
 			Txt_Pagar.TabIndex = 12;
-			Txt_Pagar.Text = "Pagar R$";
+			Txt_Pagar.Text = "Pagar";
 			// 
 			// Txt_Pedido
 			// 
@@ -230,8 +277,7 @@
 			Txt_Total.Name = "Txt_Total";
 			Txt_Total.Size = new Size(67, 24);
 			Txt_Total.TabIndex = 8;
-			Txt_Total.Text = "Total R$";
-			Txt_Total.Click += Txt_Total_Click;
+			Txt_Total.Text = "Total";
 			// 
 			// Txt_Troco
 			// 
@@ -239,18 +285,18 @@
 			Txt_Troco.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			Txt_Troco.Location = new Point(599, 377);
 			Txt_Troco.Name = "Txt_Troco";
-			Txt_Troco.Size = new Size(67, 20);
+			Txt_Troco.Size = new Size(46, 20);
 			Txt_Troco.TabIndex = 8;
-			Txt_Troco.Text = "Troco R$";
+			Txt_Troco.Text = "Troco";
 			// 
-			// ProdutoID
+			// Txt_NomeProduto
 			// 
-			ProdutoID.BackColor = SystemColors.GradientInactiveCaption;
-			ProdutoID.BorderStyle = BorderStyle.FixedSingle;
-			ProdutoID.Location = new Point(89, 139);
-			ProdutoID.Name = "ProdutoID";
-			ProdutoID.Size = new Size(193, 23);
-			ProdutoID.TabIndex = 6;
+			Txt_NomeProduto.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_NomeProduto.BorderStyle = BorderStyle.FixedSingle;
+			Txt_NomeProduto.Location = new Point(89, 139);
+			Txt_NomeProduto.Name = "Txt_NomeProduto";
+			Txt_NomeProduto.Size = new Size(193, 23);
+			Txt_NomeProduto.TabIndex = 6;
 			// 
 			// Txt_QTD
 			// 
@@ -262,64 +308,55 @@
 			Txt_QTD.TabIndex = 8;
 			Txt_QTD.Text = "Quantidade";
 			// 
-			// textBox4
+			// Txt_QTDitem
 			// 
-			textBox4.BackColor = SystemColors.GradientInactiveCaption;
-			textBox4.BorderStyle = BorderStyle.FixedSingle;
-			textBox4.Location = new Point(451, 121);
-			textBox4.Name = "textBox4";
-			textBox4.Size = new Size(81, 23);
-			textBox4.TabIndex = 5;
+			Txt_QTDitem.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_QTDitem.BorderStyle = BorderStyle.FixedSingle;
+			Txt_QTDitem.Location = new Point(451, 121);
+			Txt_QTDitem.Name = "Txt_QTDitem";
+			Txt_QTDitem.Size = new Size(81, 23);
+			Txt_QTDitem.TabIndex = 5;
+			Txt_QTDitem.TextChanged += textBox4_TextChanged;
 			// 
-			// label1
+			// Lbl_TotalVenda
 			// 
-			label1.AutoSize = true;
-			label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label1.Location = new Point(727, 287);
-			label1.Name = "label1";
-			label1.Size = new Size(40, 17);
-			label1.TabIndex = 16;
-			label1.Text = "00,00";
+			Lbl_TotalVenda.AutoSize = true;
+			Lbl_TotalVenda.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			Lbl_TotalVenda.Location = new Point(727, 287);
+			Lbl_TotalVenda.Name = "Lbl_TotalVenda";
+			Lbl_TotalVenda.Size = new Size(40, 17);
+			Lbl_TotalVenda.TabIndex = 16;
+			Lbl_TotalVenda.Text = "00,00";
 			// 
-			// label2
+			// Lbl_ValorTroco
 			// 
-			label2.AutoSize = true;
-			label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label2.Location = new Point(727, 332);
-			label2.Name = "label2";
-			label2.Size = new Size(40, 17);
-			label2.TabIndex = 16;
-			label2.Text = "00,00";
+			Lbl_ValorTroco.AutoSize = true;
+			Lbl_ValorTroco.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			Lbl_ValorTroco.Location = new Point(727, 377);
+			Lbl_ValorTroco.Name = "Lbl_ValorTroco";
+			Lbl_ValorTroco.Size = new Size(40, 17);
+			Lbl_ValorTroco.TabIndex = 16;
+			Lbl_ValorTroco.Text = "00,00";
 			// 
-			// label3
+			// Txt_SubTotal
 			// 
-			label3.AutoSize = true;
-			label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label3.Location = new Point(727, 377);
-			label3.Name = "label3";
-			label3.Size = new Size(40, 17);
-			label3.TabIndex = 16;
-			label3.Text = "00,00";
+			Txt_SubTotal.AutoSize = true;
+			Txt_SubTotal.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			Txt_SubTotal.Location = new Point(131, 194);
+			Txt_SubTotal.Name = "Txt_SubTotal";
+			Txt_SubTotal.Size = new Size(40, 17);
+			Txt_SubTotal.TabIndex = 16;
+			Txt_SubTotal.Text = "00,00";
 			// 
-			// label4
+			// Lbl_ValorProduto
 			// 
-			label4.AutoSize = true;
-			label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label4.Location = new Point(131, 194);
-			label4.Name = "label4";
-			label4.Size = new Size(40, 17);
-			label4.TabIndex = 16;
-			label4.Text = "00,00";
-			// 
-			// label5
-			// 
-			label5.AutoSize = true;
-			label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label5.Location = new Point(494, 72);
-			label5.Name = "label5";
-			label5.Size = new Size(38, 15);
-			label5.TabIndex = 16;
-			label5.Text = "00,00";
+			Lbl_ValorProduto.AutoSize = true;
+			Lbl_ValorProduto.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			Lbl_ValorProduto.Location = new Point(494, 72);
+			Lbl_ValorProduto.Name = "Lbl_ValorProduto";
+			Lbl_ValorProduto.Size = new Size(38, 15);
+			Lbl_ValorProduto.TabIndex = 16;
+			Lbl_ValorProduto.Text = "00,00";
 			// 
 			// Txt_label
 			// 
@@ -329,7 +366,6 @@
 			Txt_label.Size = new Size(22, 15);
 			Txt_label.TabIndex = 17;
 			Txt_label.Text = "---";
-			Txt_label.Click += Txt_label_Click;
 			// 
 			// Txt_ETQ
 			// 
@@ -339,7 +375,6 @@
 			Txt_ETQ.Size = new Size(22, 15);
 			Txt_ETQ.TabIndex = 18;
 			Txt_ETQ.Text = "---";
-			Txt_ETQ.Click += Txt_ETQ_Click;
 			// 
 			// Btn_OK
 			// 
@@ -350,6 +385,7 @@
 			Btn_OK.TabIndex = 19;
 			Btn_OK.Text = "⟶";
 			Btn_OK.UseVisualStyleBackColor = true;
+			Btn_OK.Click += Btn_OK_Click;
 			// 
 			// label6
 			// 
@@ -361,14 +397,55 @@
 			label6.TabIndex = 3;
 			label6.Text = "Nome";
 			// 
-			// textBox5
+			// Txt_ClienteId
 			// 
-			textBox5.BackColor = SystemColors.GradientInactiveCaption;
-			textBox5.BorderStyle = BorderStyle.FixedSingle;
-			textBox5.Location = new Point(285, 14);
-			textBox5.Name = "textBox5";
-			textBox5.Size = new Size(81, 23);
-			textBox5.TabIndex = 5;
+			Txt_ClienteId.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_ClienteId.BorderStyle = BorderStyle.FixedSingle;
+			Txt_ClienteId.Location = new Point(285, 14);
+			Txt_ClienteId.Name = "Txt_ClienteId";
+			Txt_ClienteId.Size = new Size(81, 23);
+			Txt_ClienteId.TabIndex = 5;
+			Txt_ClienteId.TextChanged += Txt_ClienteId_TextChanged;
+			// 
+			// LblStatusBuscaProduto
+			// 
+			LblStatusBuscaProduto.AutoSize = true;
+			LblStatusBuscaProduto.Location = new Point(188, 90);
+			LblStatusBuscaProduto.Name = "LblStatusBuscaProduto";
+			LblStatusBuscaProduto.Size = new Size(22, 15);
+			LblStatusBuscaProduto.TabIndex = 20;
+			LblStatusBuscaProduto.Text = "---";
+			// 
+			// label7
+			// 
+			label7.AutoSize = true;
+			label7.Location = new Point(188, 165);
+			label7.Name = "label7";
+			label7.Size = new Size(22, 15);
+			label7.TabIndex = 21;
+			label7.Text = "---";
+			// 
+			// LblStatusBuscaCliente
+			// 
+			LblStatusBuscaCliente.AutoSize = true;
+			LblStatusBuscaCliente.Location = new Point(285, 40);
+			LblStatusBuscaCliente.Name = "LblStatusBuscaCliente";
+			LblStatusBuscaCliente.Size = new Size(22, 15);
+			LblStatusBuscaCliente.TabIndex = 17;
+			LblStatusBuscaCliente.Text = "---";
+			// 
+			// TxT_ValorPago
+			// 
+			TxT_ValorPago.BackColor = SystemColors.GradientInactiveCaption;
+			TxT_ValorPago.BorderStyle = BorderStyle.FixedSingle;
+			TxT_ValorPago.Font = new Font("Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, 2);
+			TxT_ValorPago.ForeColor = SystemColors.InactiveCaptionText;
+			TxT_ValorPago.ImeMode = ImeMode.NoControl;
+			TxT_ValorPago.Location = new Point(705, 330);
+			TxT_ValorPago.Name = "TxT_ValorPago";
+			TxT_ValorPago.Size = new Size(81, 22);
+			TxT_ValorPago.TabIndex = 5;
+			TxT_ValorPago.TextChanged += TxT_ValorPago_TextChanged;
 			// 
 			// TelaVenda
 			// 
@@ -376,14 +453,16 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = SystemColors.ActiveCaption;
 			ClientSize = new Size(800, 453);
+			Controls.Add(label7);
+			Controls.Add(LblStatusBuscaProduto);
 			Controls.Add(Btn_OK);
 			Controls.Add(Txt_ETQ);
+			Controls.Add(LblStatusBuscaCliente);
 			Controls.Add(Txt_label);
-			Controls.Add(label3);
-			Controls.Add(label2);
-			Controls.Add(label5);
-			Controls.Add(label4);
-			Controls.Add(label1);
+			Controls.Add(Lbl_ValorTroco);
+			Controls.Add(Lbl_ValorProduto);
+			Controls.Add(Txt_SubTotal);
+			Controls.Add(Lbl_TotalVenda);
 			Controls.Add(Txt_Unidade);
 			Controls.Add(Txt_Preco);
 			Controls.Add(Txt_Pagar);
@@ -395,11 +474,12 @@
 			Controls.Add(Txt_Total);
 			Controls.Add(Txt_QTD);
 			Controls.Add(Txt_TotalGeral);
-			Controls.Add(textBox3);
-			Controls.Add(ProdutoID);
-			Controls.Add(textBox2);
-			Controls.Add(textBox4);
-			Controls.Add(textBox5);
+			Controls.Add(Txt_NomeCliente);
+			Controls.Add(Txt_NomeProduto);
+			Controls.Add(Txt_IDProduto);
+			Controls.Add(Txt_QTDitem);
+			Controls.Add(Txt_ClienteId);
+			Controls.Add(TxT_ValorPago);
 			Controls.Add(Txt_VendaID);
 			Controls.Add(ListaPedido);
 			Controls.Add(label6);
@@ -425,8 +505,8 @@
 		private Label ListaPedido;
 		private Label Txt_Cliente;
 		private TextBox Txt_VendaID;
-		private TextBox textBox2;
-		private TextBox textBox3;
+		private TextBox Txt_IDProduto;
+		private TextBox Txt_NomeCliente;
 		private Label Txt_TotalGeral;
 		private Button Btn_Limpa;
 		private Button Btn_Registra;
@@ -437,18 +517,26 @@
 		private Label Txt_Unidade;
 		private Label Txt_Total;
 		private Label Txt_Troco;
-		private TextBox ProdutoID;
+		private TextBox Txt_NomeProduto;
 		private Label Txt_QTD;
-		private TextBox textBox4;
-		private Label label1;
-		private Label label2;
-		private Label label3;
-		private Label label4;
-		private Label label5;
+		private TextBox Txt_QTDitem;
+		private Label Lbl_TotalVenda;
+		private Label Lbl_ValorTroco;
+		private Label Txt_SubTotal;
+		private Label Lbl_ValorProduto;
 		private Label Txt_label;
 		private Label Txt_ETQ;
 		private Button Btn_OK;
 		private Label label6;
-		private TextBox textBox5;
+		private TextBox Txt_ClienteId;
+		private Label LblStatusBuscaProduto;
+		private Label label7;
+		private Label LblStatusBuscaCliente;
+		private DataGridViewTextBoxColumn IdItemDaVenda;
+		private DataGridViewTextBoxColumn NomeProduto;
+		private DataGridViewTextBoxColumn PrecoUnitario;
+		private DataGridViewTextBoxColumn QuantidadeVendida;
+		private DataGridViewTextBoxColumn SubTotalDoItem;
+		private TextBox TxT_ValorPago;
 	}
 }
