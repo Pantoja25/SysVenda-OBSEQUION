@@ -39,19 +39,16 @@
 			Txt_Preco = new Label();
 			Txt_Pagar = new Label();
 			Txt_Pedido = new Label();
-			Txt_Unidade = new Label();
 			Txt_Total = new Label();
 			Txt_Troco = new Label();
 			ProdutoID = new TextBox();
 			Txt_QTD = new Label();
-			textBox4 = new TextBox();
-			label1 = new Label();
-			label2 = new Label();
-			label3 = new Label();
-			label4 = new Label();
-			label5 = new Label();
-			Txt_label = new Label();
-			Txt_ETQ = new Label();
+			Txt_QTDitem = new TextBox();
+			Lbl_TotalVenda = new Label();
+			Lbl_ValorTroco = new Label();
+			Txt_SubTotal = new Label();
+			Lbl_ValorProduto = new Label();
+			Lbl_QtdEstoque = new Label();
 			Btn_OK = new Button();
 			label6 = new Label();
 			textBox5 = new TextBox();
@@ -66,7 +63,8 @@
 			DGV_ListaPedido.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			DGV_ListaPedido.Location = new Point(12, 305);
 			DGV_ListaPedido.Name = "DGV_ListaPedido";
-			DGV_ListaPedido.Size = new Size(520, 133);
+			DGV_ListaPedido.ReadOnly = true;
+			DGV_ListaPedido.Size = new Size(520, 180);
 			DGV_ListaPedido.TabIndex = 0;
 			// 
 			// Txt_IdVenda
@@ -146,7 +144,7 @@
 			Txt_TotalGeral.BackColor = SystemColors.ActiveCaption;
 			Txt_TotalGeral.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			Txt_TotalGeral.ForeColor = SystemColors.ControlText;
-			Txt_TotalGeral.Location = new Point(599, 287);
+			Txt_TotalGeral.Location = new Point(640, 334);
 			Txt_TotalGeral.Name = "Txt_TotalGeral";
 			Txt_TotalGeral.Size = new Size(102, 20);
 			Txt_TotalGeral.TabIndex = 8;
@@ -156,7 +154,7 @@
 			// Btn_Limpa
 			// 
 			Btn_Limpa.BackColor = SystemColors.GradientInactiveCaption;
-			Btn_Limpa.Location = new Point(599, 415);
+			Btn_Limpa.Location = new Point(640, 462);
 			Btn_Limpa.Name = "Btn_Limpa";
 			Btn_Limpa.Size = new Size(91, 23);
 			Btn_Limpa.TabIndex = 10;
@@ -166,7 +164,7 @@
 			// Btn_Registra
 			// 
 			Btn_Registra.BackColor = SystemColors.GradientInactiveCaption;
-			Btn_Registra.Location = new Point(705, 415);
+			Btn_Registra.Location = new Point(746, 462);
 			Btn_Registra.Name = "Btn_Registra";
 			Btn_Registra.Size = new Size(83, 23);
 			Btn_Registra.TabIndex = 11;
@@ -187,7 +185,7 @@
 			// 
 			Txt_Preco.AutoSize = true;
 			Txt_Preco.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			Txt_Preco.Location = new Point(439, 70);
+			Txt_Preco.Location = new Point(325, 70);
 			Txt_Preco.Name = "Txt_Preco";
 			Txt_Preco.Size = new Size(60, 17);
 			Txt_Preco.TabIndex = 12;
@@ -197,7 +195,7 @@
 			// 
 			Txt_Pagar.AutoSize = true;
 			Txt_Pagar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			Txt_Pagar.Location = new Point(599, 332);
+			Txt_Pagar.Location = new Point(640, 379);
 			Txt_Pagar.Name = "Txt_Pagar";
 			Txt_Pagar.Size = new Size(67, 20);
 			Txt_Pagar.TabIndex = 12;
@@ -213,20 +211,10 @@
 			Txt_Pedido.TabIndex = 12;
 			Txt_Pedido.Text = "Pedido";
 			// 
-			// Txt_Unidade
-			// 
-			Txt_Unidade.AutoSize = true;
-			Txt_Unidade.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			Txt_Unidade.Location = new Point(335, 70);
-			Txt_Unidade.Name = "Txt_Unidade";
-			Txt_Unidade.Size = new Size(57, 17);
-			Txt_Unidade.TabIndex = 14;
-			Txt_Unidade.Text = "Unidade";
-			// 
 			// Txt_Total
 			// 
 			Txt_Total.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			Txt_Total.Location = new Point(58, 191);
+			Txt_Total.Location = new Point(55, 221);
 			Txt_Total.Name = "Txt_Total";
 			Txt_Total.Size = new Size(67, 24);
 			Txt_Total.TabIndex = 8;
@@ -237,7 +225,7 @@
 			// 
 			Txt_Troco.AutoSize = true;
 			Txt_Troco.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			Txt_Troco.Location = new Point(599, 377);
+			Txt_Troco.Location = new Point(640, 424);
 			Txt_Troco.Name = "Txt_Troco";
 			Txt_Troco.Size = new Size(67, 20);
 			Txt_Troco.TabIndex = 8;
@@ -256,7 +244,7 @@
 			// 
 			Txt_QTD.AutoSize = true;
 			Txt_QTD.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			Txt_QTD.Location = new Point(374, 124);
+			Txt_QTD.Location = new Point(341, 142);
 			Txt_QTD.Name = "Txt_QTD";
 			Txt_QTD.Size = new Size(76, 17);
 			Txt_QTD.TabIndex = 8;
@@ -264,87 +252,68 @@
 			// 
 			// textBox4
 			// 
-			textBox4.BackColor = SystemColors.GradientInactiveCaption;
-			textBox4.BorderStyle = BorderStyle.FixedSingle;
-			textBox4.Location = new Point(451, 121);
-			textBox4.Name = "textBox4";
-			textBox4.Size = new Size(81, 23);
-			textBox4.TabIndex = 5;
+			Txt_QTDitem.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_QTDitem.BorderStyle = BorderStyle.FixedSingle;
+			Txt_QTDitem.Location = new Point(418, 139);
+			Txt_QTDitem.Name = "Txt_QTDitem";
+			Txt_QTDitem.Size = new Size(81, 23);
+			Txt_QTDitem.TabIndex = 5;
+			Txt_QTDitem.TextChanged += textBox4_TextChanged;
 			// 
 			// label1
 			// 
-			label1.AutoSize = true;
-			label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label1.Location = new Point(727, 287);
-			label1.Name = "label1";
-			label1.Size = new Size(40, 17);
-			label1.TabIndex = 16;
-			label1.Text = "00,00";
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label2.Location = new Point(727, 332);
-			label2.Name = "label2";
-			label2.Size = new Size(40, 17);
-			label2.TabIndex = 16;
-			label2.Text = "00,00";
+			Lbl_TotalVenda.AutoSize = true;
+			Lbl_TotalVenda.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			Lbl_TotalVenda.Location = new Point(768, 334);
+			Lbl_TotalVenda.Name = "Lbl_TotalVenda";
+			Lbl_TotalVenda.Size = new Size(40, 17);
+			Lbl_TotalVenda.TabIndex = 16;
+			Lbl_TotalVenda.Text = "00,00";
 			// 
 			// label3
 			// 
-			label3.AutoSize = true;
-			label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label3.Location = new Point(727, 377);
-			label3.Name = "label3";
-			label3.Size = new Size(40, 17);
-			label3.TabIndex = 16;
-			label3.Text = "00,00";
+			Lbl_ValorTroco.AutoSize = true;
+			Lbl_ValorTroco.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			Lbl_ValorTroco.Location = new Point(768, 424);
+			Lbl_ValorTroco.Name = "Lbl_ValorTroco";
+			Lbl_ValorTroco.Size = new Size(40, 17);
+			Lbl_ValorTroco.TabIndex = 16;
+			Lbl_ValorTroco.Text = "00,00";
 			// 
 			// label4
 			// 
-			label4.AutoSize = true;
-			label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label4.Location = new Point(131, 194);
-			label4.Name = "label4";
-			label4.Size = new Size(40, 17);
-			label4.TabIndex = 16;
-			label4.Text = "00,00";
+			Txt_SubTotal.AutoSize = true;
+			Txt_SubTotal.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			Txt_SubTotal.Location = new Point(128, 224);
+			Txt_SubTotal.Name = "Txt_SubTotal";
+			Txt_SubTotal.Size = new Size(40, 17);
+			Txt_SubTotal.TabIndex = 16;
+			Txt_SubTotal.Text = "00,00";
 			// 
 			// label5
 			// 
-			label5.AutoSize = true;
-			label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label5.Location = new Point(494, 72);
-			label5.Name = "label5";
-			label5.Size = new Size(38, 15);
-			label5.TabIndex = 16;
-			label5.Text = "00,00";
+			Lbl_ValorProduto.AutoSize = true;
+			Lbl_ValorProduto.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			Lbl_ValorProduto.Location = new Point(387, 72);
+			Lbl_ValorProduto.Name = "Lbl_ValorProduto";
+			Lbl_ValorProduto.Size = new Size(38, 15);
+			Lbl_ValorProduto.TabIndex = 16;
+			Lbl_ValorProduto.Text = "00,00";
 			// 
-			// Txt_label
+			// Lbl_QtdEstoque
 			// 
-			Txt_label.AutoSize = true;
-			Txt_label.Location = new Point(398, 72);
-			Txt_label.Name = "Txt_label";
-			Txt_label.Size = new Size(22, 15);
-			Txt_label.TabIndex = 17;
-			Txt_label.Text = "---";
-			Txt_label.Click += Txt_label_Click;
-			// 
-			// Txt_ETQ
-			// 
-			Txt_ETQ.AutoSize = true;
-			Txt_ETQ.Location = new Point(649, 72);
-			Txt_ETQ.Name = "Txt_ETQ";
-			Txt_ETQ.Size = new Size(22, 15);
-			Txt_ETQ.TabIndex = 18;
-			Txt_ETQ.Text = "---";
-			Txt_ETQ.Click += Txt_ETQ_Click;
+			Lbl_QtdEstoque.AutoSize = true;
+			Lbl_QtdEstoque.Location = new Point(649, 72);
+			Lbl_QtdEstoque.Name = "Lbl_QtdEstoque";
+			Lbl_QtdEstoque.Size = new Size(22, 15);
+			Lbl_QtdEstoque.TabIndex = 18;
+			Lbl_QtdEstoque.Text = "---";
+			Lbl_QtdEstoque.Click += Lbl_QtdEstoque_Click;
 			// 
 			// Btn_OK
 			// 
 			Btn_OK.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			Btn_OK.Location = new Point(451, 150);
+			Btn_OK.Location = new Point(418, 168);
 			Btn_OK.Name = "Btn_OK";
 			Btn_OK.Size = new Size(81, 23);
 			Btn_OK.TabIndex = 19;
@@ -363,28 +332,33 @@
 			// 
 			// textBox5
 			// 
-			textBox5.BackColor = SystemColors.GradientInactiveCaption;
-			textBox5.BorderStyle = BorderStyle.FixedSingle;
-			textBox5.Location = new Point(285, 14);
-			textBox5.Name = "textBox5";
-			textBox5.Size = new Size(81, 23);
-			textBox5.TabIndex = 5;
+			TxT_ValorPago.BackColor = SystemColors.GradientInactiveCaption;
+			TxT_ValorPago.BorderStyle = BorderStyle.FixedSingle;
+			TxT_ValorPago.Font = new Font("Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, 2);
+			TxT_ValorPago.ForeColor = SystemColors.InactiveCaptionText;
+			TxT_ValorPago.ImeMode = ImeMode.NoControl;
+			TxT_ValorPago.Location = new Point(746, 377);
+			TxT_ValorPago.Name = "TxT_ValorPago";
+			TxT_ValorPago.Size = new Size(81, 22);
+			TxT_ValorPago.TabIndex = 5;
+			TxT_ValorPago.TextChanged += TxT_ValorPago_TextChanged;
 			// 
 			// TelaVenda
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
+			AutoSize = true;
 			BackColor = SystemColors.ActiveCaption;
-			ClientSize = new Size(800, 453);
+			ClientSize = new Size(856, 523);
+			Controls.Add(label7);
+			Controls.Add(LblStatusBuscaProduto);
 			Controls.Add(Btn_OK);
-			Controls.Add(Txt_ETQ);
-			Controls.Add(Txt_label);
-			Controls.Add(label3);
-			Controls.Add(label2);
-			Controls.Add(label5);
-			Controls.Add(label4);
-			Controls.Add(label1);
-			Controls.Add(Txt_Unidade);
+			Controls.Add(Lbl_QtdEstoque);
+			Controls.Add(LblStatusBuscaCliente);
+			Controls.Add(Lbl_ValorTroco);
+			Controls.Add(Lbl_ValorProduto);
+			Controls.Add(Txt_SubTotal);
+			Controls.Add(Lbl_TotalVenda);
 			Controls.Add(Txt_Preco);
 			Controls.Add(Txt_Pagar);
 			Controls.Add(Txt_Pedido);
@@ -434,19 +408,16 @@
 		private Label Txt_Preco;
 		private Label Txt_Pagar;
 		private Label Txt_Pedido;
-		private Label Txt_Unidade;
 		private Label Txt_Total;
 		private Label Txt_Troco;
 		private TextBox ProdutoID;
 		private Label Txt_QTD;
-		private TextBox textBox4;
-		private Label label1;
-		private Label label2;
-		private Label label3;
-		private Label label4;
-		private Label label5;
-		private Label Txt_label;
-		private Label Txt_ETQ;
+		private TextBox Txt_QTDitem;
+		private Label Lbl_TotalVenda;
+		private Label Lbl_ValorTroco;
+		private Label Txt_SubTotal;
+		private Label Lbl_ValorProduto;
+		private Label Lbl_QtdEstoque;
 		private Button Btn_OK;
 		private Label label6;
 		private TextBox textBox5;

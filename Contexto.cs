@@ -6,7 +6,7 @@ namespace SysVenda_OBSEQUION {
 		public DbSet<Cliente> Clientes { get; set; }
 		public DbSet<Produtos> Produtos { get; set; }
 		public DbSet<Venda> Vendas { get; set; }
-		public DbSet<ItemVenda> ItensVendas { get; set; }
+		public DbSet<ItemVenda> ItensVenda { get; set; }
 		public DbSet<Usuario> Usuarios { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {

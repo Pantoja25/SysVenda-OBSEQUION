@@ -13,16 +13,13 @@ namespace SysVenda_OBSEQUION.entidades {
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ItemVendaId { get; set; }
 		public int VendaId { get; set; }
-		public int ProdutoId { get; set; }
-		public string Titulo { get; set; }
-		public string Descricao { get; set; }
+		public int ProdutosId { get; set; }
+		public string? Descricao { get; set; }
 		public decimal Preco { get; set; }
-		public bool Disponivel { get; set; }
 		public decimal Quantidade { get; set; }
 		public decimal ValorUnitario { get; set; }
 		public decimal Subtotal {
 			get { return ValorUnitario * Quantidade; }
-
 		}
 
 		public Venda Venda { get; set; }
