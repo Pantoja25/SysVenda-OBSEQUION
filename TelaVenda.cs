@@ -12,29 +12,36 @@ using SysVendas2.DTO;
 
 namespace SysVenda_OBSEQUION {
 	public partial class TelaVenda : Form {
+		Venda vendaAtual = new Venda();
+		Cliente clienteVenda = new Cliente();
+		ItemVenda ItemVendaAtual = new ItemVenda();
+		List<ItemVenda> itensDaVenda = new List<ItemVenda>();
+		Produtos prodAtual = new Produtos();
+
+		int idItemDaVenda = 0;
+
+		decimal valorTotalVenda = 0;
+		decimal valorPago = 0;
 		public TelaVenda() {
 			InitializeComponent();
 		}
 
 		private void Txt_TotalGeral_Click(object sender, EventArgs e) {
+			if (prodAtual != null) {
+				ItemVendaAtual.ProdutosId = prodAtual.ProdutosId;
+				ItemVendaAtual.ValorUnitario = prodAtual.Preco;
 
-						if (prodAtual != null) {
-							ItemVendaAtual.ProdutosId = prodAtual.ProdutosId;
-							ItemVendaAtual.ValorUnitario = prodAtual.Preco;
-
-							Txt_NomeProduto.Text = prodAtual.Descricao;
-							Lbl_ValorProduto.Text = prodAtual.Preco.ToString("G", CultureInfo.CurrentCulture);
+				Txt_NomeProduto.Text = prodAtual.Descricao;
+				Lbl_ValorProduto.Text = prodAtual.Preco.ToString("G", CultureInfo.CurrentCulture);
 
 
-							LblStatusBuscaProduto.Text = "Status";
-							LblStatusBuscaProduto.ForeColor = Color.Black;
-						} else {
-							LblStatusBuscaProduto.Text = "Produto não encontrado";
-							LblStatusBuscaProduto.ForeColor = Color.Red;
-						}
-					}
-				}
+				LblStatusBuscaProduto.Text = "Status";
+				LblStatusBuscaProduto.ForeColor = Color.Black;
+			} else {
+				LblStatusBuscaProduto.Text = "Produto não encontrado";
+				LblStatusBuscaProduto.ForeColor = Color.Red;
 			}
+		}
 
 		private void Txt_Total_Click(object sender, EventArgs e) {
 
