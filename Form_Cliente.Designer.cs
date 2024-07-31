@@ -128,6 +128,8 @@
 			Txt_CEP.Name = "Txt_CEP";
 			Txt_CEP.Size = new Size(106, 23);
 			Txt_CEP.TabIndex = 8;
+			Txt_CEP.Text = "8744360";
+			Txt_CEP.TextChanged += Txt_CEP_TextChanged;
 			// 
 			// Txt_ENDERECO
 			// 

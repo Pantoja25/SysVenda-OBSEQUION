@@ -25,9 +25,9 @@ namespace SysVenda_OBSEQUION {
 
 			using (var clienteCxt = new Contexto()) {
 				clientes = clienteCxt.Clientes.ToList();
+			DGV_ListaClientes.DataSource = clientes;
 			}
 
-			DGV_ListaClientes.DataSource = clientes;
 		}
 
 		private void label6_Click(object sender, EventArgs e) {
@@ -38,7 +38,7 @@ namespace SysVenda_OBSEQUION {
 
 		}
 
-		private void Btn_INSERIR_Click(object sender, EventArgs e) {
+		private void Btn_INSERIR_Click(object sender, EventArgs e) {    
 			//Converção em formato de data
 			DateTime dataNascimento;
 			DateTime.TryParseExact(Txt_NASCIMENTO.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento);
@@ -100,6 +100,19 @@ namespace SysVenda_OBSEQUION {
 
 						MessageBox.Show("Clientes Atualizado!");
 
+							contexto.Clientes.Update(clienteRegistrado);
+							contexto.SaveChanges();
+						
+						Txt_NOME.Text = "";
+						Txt_RG.Text = "";
+						Txt_CPF.Text = "";
+						Txt_NASCIMENTO.Text = "";
+						Txt_ENDERECO.Text = "";
+						Txt_FONE.Text = "";
+						Txt_EMAIL.Text = "";
+						Txt_NOME.Focus();
+						Txt_CEP.Text = "";
+
 
 					} else {
 						MessageBox.Show("Cliente não encontrado ou campos inválidos.");
@@ -109,8 +122,11 @@ namespace SysVenda_OBSEQUION {
 					clientes = contexto.Clientes.ToList();
 					DGV_ListaClientes.DataSource = clientes;
 				}
-
-			} else {
+				Btn_INSERIR.Enabled = true;
+				Btn_EXCLUIR.Enabled = true;
+			}
+			else
+			{
 				if (DGV_ListaClientes.SelectedRows.Count > 0) {
 					Cliente clienteSelected = DGV_ListaClientes.SelectedRows[0].DataBoundItem as Cliente;
 
@@ -122,6 +138,9 @@ namespace SysVenda_OBSEQUION {
 					Txt_FONE.Text = clienteSelected.Fone;
 					Txt_EMAIL.Text = clienteSelected.Email;
 					//Txt_NASCIMENTO.Text = clienteSelected.DataNascimento;
+
+					Btn_INSERIR.Enabled = false;
+					Btn_EXCLUIR.Enabled = false;
 
 					estadoUsuario = 2;
 				}
@@ -159,6 +178,10 @@ namespace SysVenda_OBSEQUION {
 			} else {
 				MessageBox.Show("CEP inválido!");
 			}
+		}
+
+		private void Txt_CEP_TextChanged(object sender, EventArgs e) {
+
 		}
 	}
 }
