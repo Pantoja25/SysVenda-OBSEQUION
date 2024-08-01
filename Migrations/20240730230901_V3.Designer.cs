@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SysVenda_OBSEQUION;
 
@@ -11,9 +12,11 @@ using SysVenda_OBSEQUION;
 namespace SysVenda_OBSEQUION.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20240730230901_V3")]
+    partial class V3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,16 +74,27 @@ namespace SysVenda_OBSEQUION.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ItemVendaId"));
 
                     b.Property<string>("Descricao")
+                        .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<bool>("Disponivel")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(65,30)");
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProdutosId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Quantidade")
                         .HasColumnType("decimal(65,30)");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<decimal>("ValorUnitario")
                         .HasColumnType("decimal(65,30)");
@@ -94,7 +108,7 @@ namespace SysVenda_OBSEQUION.Migrations
 
                     b.HasIndex("VendaId");
 
-                    b.ToTable("ItensVenda");
+                    b.ToTable("ItensVendas");
                 });
 
             modelBuilder.Entity("SysVenda_OBSEQUION.entidades.Produtos", b =>
@@ -111,9 +125,6 @@ namespace SysVenda_OBSEQUION.Migrations
 
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(65,30)");
-
-                    b.Property<double>("QtdEstoque")
-                        .HasColumnType("double");
 
                     b.Property<string>("Unidade")
                         .IsRequired()

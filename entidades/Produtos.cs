@@ -11,6 +11,7 @@ namespace SysVenda_OBSEQUION.entidades {
 		public int ProdutosId { get; set; }
 		public string Descricao { get; set; }
 		public string Unidade { get; set; }
+		public double QtdEstoque { get; set; }
 		public decimal Preco { get; set; }
 	}
 }
