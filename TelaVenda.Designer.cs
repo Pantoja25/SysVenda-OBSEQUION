@@ -173,6 +173,8 @@
 			Txt_IDProduto.Name = "Txt_IDProduto";
 			Txt_IDProduto.Size = new Size(193, 23);
 			Txt_IDProduto.TabIndex = 6;
+			Txt_IDProduto.TextChanged += Txt_IDProduto_TextChanged;
+			Txt_IDProduto.KeyPress += Txt_IDProduto_KeyPress_1;
 			// 
 			// Txt_NomeCliente
 			// 
@@ -215,6 +217,7 @@
 			Btn_Registra.TabIndex = 11;
 			Btn_Registra.Text = "Registrar";
 			Btn_Registra.UseVisualStyleBackColor = false;
+			Btn_Registra.Click += Btn_Registra_Click_1;
 			// 
 			// Txt_Estoque
 			// 
@@ -302,6 +305,7 @@
 			Txt_QTDitem.Name = "Txt_QTDitem";
 			Txt_QTDitem.Size = new Size(81, 23);
 			Txt_QTDitem.TabIndex = 5;
+			Txt_QTDitem.TextChanged += Txt_QTDitem_TextChanged;
 			// 
 			// Lbl_TotalVenda
 			// 
@@ -354,13 +358,17 @@
 			// 
 			// Btn_OK
 			// 
+			Btn_OK.AccessibleRole = AccessibleRole.Animation;
+			Btn_OK.BackColor = SystemColors.ActiveCaption;
 			Btn_OK.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			Btn_OK.Location = new Point(456, 165);
 			Btn_OK.Name = "Btn_OK";
-			Btn_OK.Size = new Size(81, 23);
+			Btn_OK.RightToLeft = RightToLeft.No;
+			Btn_OK.Size = new Size(81, 41);
 			Btn_OK.TabIndex = 19;
-			Btn_OK.Text = "⟶";
-			Btn_OK.UseVisualStyleBackColor = true;
+			Btn_OK.Text = "➡️";
+			Btn_OK.UseVisualStyleBackColor = false;
+			Btn_OK.Click += Btn_OK_Click_1;
 			// 
 			// label6
 			// 
@@ -380,6 +388,7 @@
 			Txt_ClienteId.Name = "Txt_ClienteId";
 			Txt_ClienteId.Size = new Size(81, 23);
 			Txt_ClienteId.TabIndex = 5;
+			Txt_ClienteId.TextChanged += Txt_ClienteId_TextChanged_1;
 			// 
 			// LblStatusBuscaProduto
 			// 
@@ -419,6 +428,7 @@
 			TxT_ValorPago.Name = "TxT_ValorPago";
 			TxT_ValorPago.Size = new Size(81, 22);
 			TxT_ValorPago.TabIndex = 5;
+			TxT_ValorPago.TextChanged += TxT_ValorPago_TextChanged_1;
 			// 
 			// button1
 			// 
