@@ -47,7 +47,7 @@ namespace SysVenda_OBSEQUION.Impressora
                     Descricao = "Melancia",
                     Unidade = "Unid",
                     Preco = 10
-                };
+                };   
 
 
                 printer.WriteLine("   id | Nome");
