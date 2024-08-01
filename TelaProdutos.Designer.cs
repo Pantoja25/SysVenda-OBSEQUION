@@ -44,50 +44,56 @@
 			// 
 			// dataGridView1
 			// 
+			dataGridView1.BackgroundColor = SystemColors.Info;
 			dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView1.Location = new Point(33, 157);
+			dataGridView1.Location = new Point(72, 146);
 			dataGridView1.Margin = new Padding(4, 3, 4, 3);
 			dataGridView1.Name = "dataGridView1";
-			dataGridView1.Size = new Size(886, 241);
+			dataGridView1.Size = new Size(837, 241);
 			dataGridView1.TabIndex = 40;
 			dataGridView1.CellContentClick += dataGridView1_CellContentClick;
 			// 
 			// Btn_Excluir
 			// 
-			Btn_Excluir.Location = new Point(812, 417);
+			Btn_Excluir.BackColor = SystemColors.GradientInactiveCaption;
+			Btn_Excluir.Location = new Point(803, 417);
 			Btn_Excluir.Margin = new Padding(4, 3, 4, 3);
 			Btn_Excluir.Name = "Btn_Excluir";
 			Btn_Excluir.Size = new Size(106, 47);
 			Btn_Excluir.TabIndex = 39;
 			Btn_Excluir.Text = "Excluir";
-			Btn_Excluir.UseVisualStyleBackColor = true;
+			Btn_Excluir.UseVisualStyleBackColor = false;
 			Btn_Excluir.Click += Btn_Excluir_Click;
 			// 
 			// Btn_Inserir
 			// 
-			Btn_Inserir.Location = new Point(33, 417);
+			Btn_Inserir.BackColor = SystemColors.GradientInactiveCaption;
+			Btn_Inserir.Location = new Point(71, 417);
 			Btn_Inserir.Margin = new Padding(4, 3, 4, 3);
 			Btn_Inserir.Name = "Btn_Inserir";
 			Btn_Inserir.Size = new Size(106, 47);
 			Btn_Inserir.TabIndex = 38;
 			Btn_Inserir.Text = "Inserir";
-			Btn_Inserir.UseVisualStyleBackColor = true;
+			Btn_Inserir.UseVisualStyleBackColor = false;
 			Btn_Inserir.Click += Btn_Inserir_Click;
 			// 
 			// Btn_Atualizar
 			// 
-			Btn_Atualizar.Location = new Point(146, 417);
+			Btn_Atualizar.BackColor = SystemColors.GradientInactiveCaption;
+			Btn_Atualizar.Location = new Point(185, 417);
 			Btn_Atualizar.Margin = new Padding(4, 3, 4, 3);
 			Btn_Atualizar.Name = "Btn_Atualizar";
 			Btn_Atualizar.Size = new Size(106, 47);
 			Btn_Atualizar.TabIndex = 37;
 			Btn_Atualizar.Text = "Atualizar";
-			Btn_Atualizar.UseVisualStyleBackColor = true;
+			Btn_Atualizar.UseVisualStyleBackColor = false;
 			Btn_Atualizar.Click += Btn_Atualizar_Click;
 			// 
 			// Txt_Preco
 			// 
-			Txt_Preco.Location = new Point(340, 93);
+			Txt_Preco.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_Preco.BorderStyle = BorderStyle.FixedSingle;
+			Txt_Preco.Location = new Point(330, 64);
 			Txt_Preco.Margin = new Padding(4, 3, 4, 3);
 			Txt_Preco.Name = "Txt_Preco";
 			Txt_Preco.Size = new Size(101, 21);
@@ -96,7 +102,9 @@
 			// 
 			// Txt_Descricao
 			// 
-			Txt_Descricao.Location = new Point(340, 48);
+			Txt_Descricao.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_Descricao.BorderStyle = BorderStyle.FixedSingle;
+			Txt_Descricao.Location = new Point(330, 19);
 			Txt_Descricao.Margin = new Padding(4, 3, 4, 3);
 			Txt_Descricao.Name = "Txt_Descricao";
 			Txt_Descricao.Size = new Size(298, 21);
@@ -105,7 +113,9 @@
 			// 
 			// Txt_Unidade
 			// 
-			Txt_Unidade.Location = new Point(82, 97);
+			Txt_Unidade.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_Unidade.BorderStyle = BorderStyle.FixedSingle;
+			Txt_Unidade.Location = new Point(72, 68);
 			Txt_Unidade.Margin = new Padding(4, 3, 4, 3);
 			Txt_Unidade.Name = "Txt_Unidade";
 			Txt_Unidade.Size = new Size(146, 21);
@@ -116,7 +126,7 @@
 			// label4
 			// 
 			label4.AutoSize = true;
-			label4.Location = new Point(292, 97);
+			label4.Location = new Point(282, 68);
 			label4.Margin = new Padding(4, 0, 4, 0);
 			label4.Name = "label4";
 			label4.Size = new Size(37, 15);
@@ -126,7 +136,7 @@
 			// label3
 			// 
 			label3.AutoSize = true;
-			label3.Location = new Point(23, 100);
+			label3.Location = new Point(13, 71);
 			label3.Margin = new Padding(4, 0, 4, 0);
 			label3.Name = "label3";
 			label3.Size = new Size(51, 15);
@@ -137,7 +147,7 @@
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(268, 52);
+			label2.Location = new Point(258, 23);
 			label2.Margin = new Padding(4, 0, 4, 0);
 			label2.Name = "label2";
 			label2.Size = new Size(58, 15);
@@ -147,7 +157,10 @@
 			// 
 			// Txt_ProdutoId
 			// 
-			Txt_ProdutoId.Location = new Point(82, 52);
+			Txt_ProdutoId.BackColor = SystemColors.GradientInactiveCaption;
+			Txt_ProdutoId.BorderStyle = BorderStyle.FixedSingle;
+			Txt_ProdutoId.ImeMode = ImeMode.NoControl;
+			Txt_ProdutoId.Location = new Point(72, 23);
 			Txt_ProdutoId.Margin = new Padding(4, 3, 4, 3);
 			Txt_ProdutoId.Name = "Txt_ProdutoId";
 			Txt_ProdutoId.Size = new Size(146, 21);
@@ -158,7 +171,7 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(54, 55);
+			label1.Location = new Point(44, 26);
 			label1.Margin = new Padding(4, 0, 4, 0);
 			label1.Name = "label1";
 			label1.Size = new Size(18, 15);
@@ -169,6 +182,7 @@
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = SystemColors.ActiveCaption;
 			ClientSize = new Size(952, 513);
 			Controls.Add(dataGridView1);
 			Controls.Add(Btn_Excluir);
