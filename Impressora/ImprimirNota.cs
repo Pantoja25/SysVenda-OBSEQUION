@@ -15,12 +15,15 @@ namespace SysVenda_OBSEQUION.Impressora
         private static Printer ObterPrinter()
         {
             // Ajuste do Encoding para se adequar à impressora.
-            return new Printer("192.168.30.75", PrinterType.Bematech, 1, 1, 1, null, ProtocolType.Network);
+            return new Printer("192.168.30.75", PrinterType.Epson, 1, 1, 1, null, ProtocolType.Network);
         }
 
-        static void Imprimir(List<ItemVenda> itens, Venda venda, Cliente cliente)
+       public static void Imprimir(List<ItemVenda> itens, Venda venda, Cliente cliente)
         {
-            Printer printer = ObterPrinter();
+			System.Text.EncodingProvider provider = System.Text.CodePagesEncodingProvider.Instance;
+			Encoding.RegisterProvider(provider);
+
+			Printer printer = ObterPrinter();
 
             try
             {
@@ -28,7 +31,7 @@ namespace SysVenda_OBSEQUION.Impressora
                 printer.AlignCenter();
                 printer.NewLines(2);
 
-                printer.Image(Properties.Resources.logo_senac, true);
+                //printer.Image , true);
 
                 printer.InitializePrint();
                 printer.AlignCenter();
@@ -41,18 +44,12 @@ namespace SysVenda_OBSEQUION.Impressora
                 printer.NewLines(1);
                 printer.AlignLeft();
 
-                Produtos produto = new Produtos
-                {
-                    ProdutosId = 2,
-                    Descricao = "Melancia",
-                    Unidade = "Unid",
-                    Preco = 10
-                };   
 
+				printer.WriteLine("id  Nome Cliente          Hora da Compra        ");
+				printer.WriteLine("------------------------------------------------");
 
-                printer.WriteLine("   id | Nome");
-                printer.WriteLine("      | Preço |  UNID  |   Quant   |   Subtotal");
-                printer.WriteLine("------------------------------------------------");
+				printer.WriteLine("   Preço  UNID  QTD  Total  Geral  Pago  Troco  ");
+				printer.WriteLine("------------------------------------------------");
 
                 itens.ForEach(it =>
                 {

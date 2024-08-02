@@ -206,7 +206,6 @@
 			Btn_Limpa.TabIndex = 10;
 			Btn_Limpa.Text = "Limpa";
 			Btn_Limpa.UseVisualStyleBackColor = false;
-			Btn_Limpa.Click += Btn_Limpa_Click;
 			// 
 			// Btn_Registra
 			// 
@@ -439,7 +438,7 @@
 			button1.TabIndex = 12;
 			button1.Text = "Imprimir";
 			button1.UseVisualStyleBackColor = false;
-			button1.Click += Btn_Limpa_Click;
+			button1.Click += button1_Click;
 			// 
 			// TelaVenda
 			// 

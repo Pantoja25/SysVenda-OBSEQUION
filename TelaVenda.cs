@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SysVenda_OBSEQUION.entidades;
+using SysVenda_OBSEQUION.Impressora;
 using SysVendas2.DTO;
 
 namespace SysVenda_OBSEQUION {
@@ -76,10 +77,6 @@ namespace SysVenda_OBSEQUION {
 			}
 		}
 
-
-		private void Btn_Limpa_Click(object sender, EventArgs e) {
-
-		}
 
 		private void Txt_ClienteId_TextChanged_1(object sender, EventArgs e) {
 			if (Txt_ClienteId.Text.Length > 0) {
@@ -150,8 +147,10 @@ namespace SysVenda_OBSEQUION {
 	new ItemVenda {
 		VendaId = 0,
 		ProdutosId = prodAtual.ProdutosId,
+		Descricao = prodAtual.Descricao,
 		Quantidade = ItemVendaAtual.Quantidade,
-		ValorUnitario = prodAtual.Preco
+		ValorUnitario = prodAtual.Preco,
+		Preco = prodAtual.Preco,
 	}
 );
 			DGV_ListaPedido.Rows.Add(
@@ -207,6 +206,10 @@ namespace SysVenda_OBSEQUION {
 
 
 			List<ItemVendaDTO> intem = new List<ItemVendaDTO>();
+		}
+
+		private void button1_Click(object sender, EventArgs e) {
+			ImprimirNota.Imprimir(itensDaVenda, vendaAtual, clienteVenda);
 		}
 	}
 }
