@@ -22,7 +22,8 @@
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
-		private void InitializeComponent() {
+		private void InitializeComponent()
+		{
 			DGV_ListaClientes = new DataGridView();
 			Btn_INSERIR = new Button();
 			Btn_ATUALIZAR = new Button();
@@ -90,6 +91,7 @@
 			Txt_NOME.Name = "Txt_NOME";
 			Txt_NOME.Size = new Size(644, 23);
 			Txt_NOME.TabIndex = 4;
+			Txt_NOME.TextChanged += Txt_NOME_TextChanged;
 			// 
 			// Txt_RG
 			// 
@@ -97,6 +99,7 @@
 			Txt_RG.Name = "Txt_RG";
 			Txt_RG.Size = new Size(139, 23);
 			Txt_RG.TabIndex = 5;
+			Txt_RG.TextChanged += Txt_RG_TextChanged;
 			// 
 			// Txt_CPF
 			// 
@@ -133,6 +136,7 @@
 			Txt_EMAIL.Name = "Txt_EMAIL";
 			Txt_EMAIL.Size = new Size(434, 23);
 			Txt_EMAIL.TabIndex = 10;
+			Txt_EMAIL.TextChanged += Txt_EMAIL_TextChanged;
 			// 
 			// Txt_FONE
 			// 
@@ -149,6 +153,7 @@
 			label1.Size = new Size(42, 15);
 			label1.TabIndex = 12;
 			label1.Text = "NOME";
+			label1.Click += label1_Click;
 			// 
 			// label2
 			// 
@@ -158,6 +163,7 @@
 			label2.Size = new Size(22, 15);
 			label2.TabIndex = 13;
 			label2.Text = "RG";
+			label2.Click += label2_Click;
 			// 
 			// label3
 			// 

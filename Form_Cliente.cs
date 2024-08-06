@@ -13,7 +13,8 @@ using System.Security.Policy;
 using SysVenda_OBSEQUION.entidades;
 
 namespace SysVenda_OBSEQUION {
-	public partial class Form_Cliente : Form {
+	public partial class Form_Cliente : Form
+	{
 
 		private Contexto contexto;
 
@@ -24,34 +25,41 @@ namespace SysVenda_OBSEQUION {
 		List<Cliente> clientes;
 
 		int clienteId = 0;
-		public Form_Cliente() {
+		public Form_Cliente()
+		{
 			InitializeComponent();
 			contexto = new Contexto();
 
 			clientes = new List<Cliente>();
 
-			using (var clienteCxt = new Contexto()) {
+			using (var clienteCxt = new Contexto())
+			{
 				clientes = clienteCxt.Clientes.ToList();
 			}
 
 			DGV_ListaClientes.DataSource = clientes;
 		}
 
-		private void label6_Click(object sender, EventArgs e) {
+		private void label6_Click(object sender, EventArgs e)
+		{
+
 
 		}
 
-		private void textBox4_TextChanged(object sender, EventArgs e) {
+		private void textBox4_TextChanged(object sender, EventArgs e)
+		{
 
 		}
 
-		private void Btn_INSERIR_Click(object sender, EventArgs e) {
+		private void Btn_INSERIR_Click(object sender, EventArgs e)
+		{
 			//Converção em formato de data
 			DateTime dataNascimento;
 			DateTime.TryParseExact(Txt_NASCIMENTO.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento);
 
 
-			Cliente novocliente = new Cliente() {
+			Cliente novocliente = new Cliente()
+			{
 				Nome = Txt_NOME.Text,
 				RG = Txt_RG.Text,
 				CPF = Txt_CPF.Text,
@@ -79,13 +87,17 @@ namespace SysVenda_OBSEQUION {
 
 		}
 
-		private void Btn_ATUALIZAR_Click(object sender, EventArgs e) {
-			if (estadoUsuario == 2) {
-				using (var contexto = new Contexto()) {
+		private void Btn_ATUALIZAR_Click(object sender, EventArgs e)
+		{
+			if (estadoUsuario == 2)
+			{
+				using (var contexto = new Contexto())
+				{
 					var clienteRegistrado = contexto.Clientes.FirstOrDefault(
 						c => c.ClienteId == clienteId);
 
-					if (clienteRegistrado != null && Txt_NOME != null) {
+					if (clienteRegistrado != null && Txt_NOME != null)
+					{
 						clienteRegistrado.Nome = Txt_NOME.Text;
 						clienteRegistrado.RG = Txt_RG.Text;
 						clienteRegistrado.CPF = Txt_CPF.Text;
@@ -102,7 +114,9 @@ namespace SysVenda_OBSEQUION {
 						MessageBox.Show("Clientes Atualizado!");
 
 
-					} else {
+					}
+					else
+					{
 						MessageBox.Show("Cliente não encontrado ou campos inválidos.");
 
 					}
@@ -111,8 +125,11 @@ namespace SysVenda_OBSEQUION {
 					DGV_ListaClientes.DataSource = clientes;
 				}
 
-			} else {
-				if (DGV_ListaClientes.SelectedRows.Count > 0) {
+			}
+			else
+			{
+				if (DGV_ListaClientes.SelectedRows.Count > 0)
+				{
 					Cliente clienteSelected = DGV_ListaClientes.SelectedRows[0].DataBoundItem as Cliente;
 
 					clienteId = clienteSelected.ClienteId;
@@ -129,11 +146,14 @@ namespace SysVenda_OBSEQUION {
 			}
 		}
 
-		private void Btn_EXCLUIR_Click(object sender, EventArgs e) {
-			if (DGV_ListaClientes.SelectedRows.Count > 0) {
+		private void Btn_EXCLUIR_Click(object sender, EventArgs e)
+		{
+			if (DGV_ListaClientes.SelectedRows.Count > 0)
+			{
 				Cliente clientesSelected = DGV_ListaClientes.SelectedRows[0].DataBoundItem as Cliente;
 
-				using (var clientesCxt = new Contexto()) {
+				using (var clientesCxt = new Contexto())
+				{
 					var clienteParaDeletar = clientesCxt.Clientes.FirstOrDefault(
 						c => c.ClienteId == clientesSelected.ClienteId);
 
@@ -149,7 +169,8 @@ namespace SysVenda_OBSEQUION {
 			}
 		}
 
-		private void Btn_BUSCAR_Click(object sender, EventArgs e) {
+		private void Btn_BUSCAR_Click(object sender, EventArgs e)
+		{
 			/*
 			ClienteAPI cliente = new ClienteAPI();
 
@@ -161,6 +182,31 @@ namespace SysVenda_OBSEQUION {
 				Resp.logradouro + ", " + Resp.localidade + ", " + Resp.uf
 			);
 			*/
+		}
+
+		private void Txt_NOME_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void Txt_RG_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label2_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void Txt_EMAIL_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
